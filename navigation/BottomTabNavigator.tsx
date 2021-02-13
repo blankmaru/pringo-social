@@ -18,7 +18,7 @@ import {
     SearchNavigatorParamList,
     LikesStackNavigatorParamList,
     ProfileStackNavigatorParamList
-} from '../types';
+} from '../types/types';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 

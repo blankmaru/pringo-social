@@ -3,9 +3,15 @@ export type RootStackParamList = {
   NotFound: undefined;
 };
 
-export interface ICirclePicture {
+export interface IProfilePicture {
   uri: string,
   size?: number
+}
+
+export interface IStoryPicture {
+  uri: string,
+  size?: number,
+  name: string
 }
 
 export type BottomTabParamList = {
