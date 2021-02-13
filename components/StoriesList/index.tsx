@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Story from "../Story";
 import {FlatList, View} from "react-native";
 
@@ -30,8 +30,12 @@ const storiesData = [
     },
 ]
 
-const StoriesList = () => (
-    <FlatList showsHorizontalScrollIndicator={false} data={storiesData} horizontal renderItem={({item}) => <Story uri={item.imgURI} name={item.name} key={item.id}/>}/>
-)
+const StoriesList = () => {
+    const [stories, setStories] = useState<Array<object>>([])
+
+    return (
+        <FlatList showsHorizontalScrollIndicator={false} data={storiesData} horizontal renderItem={({item}) => <Story uri={item.imgURI} name={item.name} key={item.id}/>}/>
+    )
+}
 
 export default StoriesList

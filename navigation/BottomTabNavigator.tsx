@@ -8,7 +8,7 @@ import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import HomeScreen from '../screens/HomeScreen';
 import SearchScreen from '../screens/SearchScreen';
-import AddPicScreen from '../screens/AddPicScreen';
+import AddNewPost from '../screens/AddNewPost';
 import LikesScreen from "../screens/LikesScreen";
 import ProfileScreen from "../screens/ProfileScreen";
 import {
@@ -125,8 +125,8 @@ function AddPictureNavigator() {
         <AddPictureStack.Navigator>
             <AddPictureStack.Screen
                 name="AddPictureScreen"
-                component={AddPicScreen}
-                options={{headerTitle: 'Add picture'}}
+                component={AddNewPost}
+                options={{headerTitle: 'Add Post'}}
             />
         </AddPictureStack.Navigator>
     );

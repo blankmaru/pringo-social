@@ -11,10 +11,16 @@ import Feed from "../components/Feed";
 export default function HomeScreen() {
     return (
         <ScrollView style={{display: 'flex', flexDirection: 'column', height: '100%'}}>
-            <View>
+            <View style={{height: 100}}>
                 <StoriesList/>
             </View>
-
+            <View
+                style={{
+                    borderBottomColor: '#6e6e6e',
+                    borderBottomWidth: 0.5,
+                    marginTop: 5
+                }}
+            />
             <View style={{flex: 1}}>
                 <Feed/>
             </View>
