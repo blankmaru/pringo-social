@@ -2,7 +2,7 @@ import {Ionicons, MaterialCommunityIcons} from '@expo/vector-icons';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 import * as React from 'react';
-import {Text} from 'react-native'
+import {Keyboard, Platform, Text} from 'react-native'
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
@@ -19,6 +19,7 @@ import {
     LikesStackNavigatorParamList,
     ProfileStackNavigatorParamList
 } from '../types/types';
+import {useEffect, useState} from "react";
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -28,7 +29,11 @@ export default function BottomTabNavigator() {
     return (
         <BottomTab.Navigator
             initialRouteName="Home"
-            tabBarOptions={{activeTintColor: Colors[colorScheme].tint, showLabel: false}}>
+            tabBarOptions={{
+                activeTintColor: Colors[colorScheme].tint,
+                showLabel: false,
+                keyboardHidesTabBar: true,
+            }}>
             <BottomTab.Screen
                 name="Home"
                 component={HomeNavigator}

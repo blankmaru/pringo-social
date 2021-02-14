@@ -10,7 +10,7 @@ import {useEffect, useState} from "react";
 
 export default function AddNewPost() {
     const [content, setContent] = useState<string>('')
-    const [imageUrl, setImageUrl] = useState<string>('')
+    const [imageUrl, setImageUrl] = useState<string | undefined>(undefined)
     const navigation = useNavigation()
 
     const getPermissionAsync = async () => {
@@ -56,7 +56,7 @@ export default function AddNewPost() {
         <SafeAreaView style={styles.container}>
             <View style={styles.headerContainer}>
                 <TouchableOpacity onPress={() => navigation.goBack()}>
-                    <MaterialCommunityIcons name={"close"} size={30} />
+                    <MaterialCommunityIcons name={"close"} size={30} color={"white"} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={onPostPress}>
                     <Button status={"basic"} onPress={onPostPress}>
@@ -72,9 +72,12 @@ export default function AddNewPost() {
                     numberOfLines={3}
                     style={styles.descInput}
                     placeholder={"What's happening?"}
+                    placeholderTextColor={"gray"}
                 />
+            </View>
+            <View>
                 <TouchableOpacity onPress={pickImage} style={{padding: 15}}>
-                    <Text style={styles.pickImage}>Pick a image</Text>
+                    <MaterialCommunityIcons name={"image"} size={30} color={"white"} />
                 </TouchableOpacity>
                 <Image source={{ uri: imageUrl }} style={styles.image} />
             </View>
@@ -93,10 +96,6 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         padding: 15,
     },
-    pickImage: {
-        color: 'white',
-        fontSize: 18
-    },
     image: {
         width: Dimensions.get('window').width,
         height: Dimensions.get('window').width
@@ -105,5 +104,7 @@ const styles = StyleSheet.create({
         height: 100,
         maxHeight: 300,
         fontSize: 20,
+        padding: 15,
+        color: 'white'
     }
 });

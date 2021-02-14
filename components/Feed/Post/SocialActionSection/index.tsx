@@ -4,6 +4,7 @@ import {MaterialCommunityIcons} from "@expo/vector-icons";
 import Colors from "../../../../constants/Colors";
 import styles from './styles'
 import {ISocialActionSectionProps} from "../../../../types/propsTypes";
+import {useNavigation} from "@react-navigation/native";
 
 const SocialActionSection = ({post}: ISocialActionSectionProps) => {
     const [isLiked, setIsLiked] = useState<boolean>(false)
@@ -15,6 +16,11 @@ const SocialActionSection = ({post}: ISocialActionSectionProps) => {
         // set user as like in post query
 
         setIsLiked(!isLiked)
+    }
+    const navigation = useNavigation()
+
+    const onPress = () => {
+        navigation.navigate('Comments');
     }
 
     useEffect(() => {
@@ -30,7 +36,7 @@ const SocialActionSection = ({post}: ISocialActionSectionProps) => {
                             ? <MaterialCommunityIcons name={"heart"} size={30} color={Colors.like.color}/>
                             : <MaterialCommunityIcons name={"heart-outline"} size={30} color={Colors.dark.tint}/>}
                     </TouchableWithoutFeedback>
-                    <TouchableWithoutFeedback>
+                    <TouchableWithoutFeedback onPress={onPress}>
                         <MaterialCommunityIcons name={"comment-outline"} size={30} color={Colors.dark.tint}/>
                     </TouchableWithoutFeedback>
                 </View>
