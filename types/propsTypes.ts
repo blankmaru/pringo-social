@@ -1,27 +1,27 @@
-export type IComment = {
-    user: IUser,
+export type TComment = {
+    user: TUser,
     text: string
 }
 
-export type IUser = {
+export type TUser = {
     id: string,
     image: string,
     name: string
 }
 
-export type IPost = {
-    user: IUser,
+export type TPost = {
+    user: TUser,
     postImg: string,
-    likesCount: Array<IUser>,
-    comments: Array<IComment>,
+    likesCount: Array<TUser>,
+    comments: Array<TComment>,
     description: string,
     postedAt: any
 }
 
 export type ISocialActionSectionProps = {
-    post: IPost
+    post: TPost
 }
 
 export type IPostProps = {
-    post: IPost
+    post: TPost
 }

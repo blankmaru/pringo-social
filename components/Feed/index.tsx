@@ -2,10 +2,10 @@ import React, {FC, useEffect, useState} from 'react'
 import {FlatList} from "react-native";
 import {posts} from "../../data";
 import Post from "./Post";
-import {IPost} from "../../types/propsTypes";
+import {TPost} from "../../types/propsTypes";
 
 const Feed = () => {
-    const [postsData, setPostsData] = useState<Array<IPost>>([])
+    const [postsData, setPostsData] = useState<Array<TPost>>([])
 
     useEffect(() => {
 

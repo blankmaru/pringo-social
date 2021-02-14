@@ -5,6 +5,9 @@ import {Text, View} from 'react-native';
 import {useNavigation} from "@react-navigation/native";
 import {MaterialCommunityIcons} from "@expo/vector-icons";
 
+import CommentInput from "../../components/Comment/CommentInput";
+import CommentsList from "../../components/Comment/CommentsList";
+
 type ICommentsProps = {}
 
 export default function CommentsScreen() {
@@ -18,10 +21,10 @@ export default function CommentsScreen() {
                 </TouchableOpacity>
             </View>
             <ScrollView>
-
+                <CommentsList/>
             </ScrollView>
-            <View>
-                <Text style={{color: 'white'}}>Add Comment</Text>
+            <View style={styles.inputContainer}>
+                <CommentInput/>
             </View>
         </View>
     );
@@ -36,4 +39,8 @@ const styles = StyleSheet.create({
         marginTop: 30,
         padding: 10
     },
+    inputContainer: {
+        width: '100%',
+        minHeight: 100
+    }
 });
